@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './header/Header';
-import Body from './body/body';
-import Footer from './footer/footer';
+import Body from './body/Body';
+import Footer from './footer/Footer';
 
 // function maincomponents(){
 //     return(
@@ -12,7 +12,7 @@ import Footer from './footer/footer';
 //         </div>
 //     )
 // }
-const maincomponents=()=>{
+const MainComponents=()=>{
     return(
         <div>
             <Header/>
@@ -21,4 +21,4 @@ const maincomponents=()=>{
         </div>
     )
 }
-export default maincomponents;
+export default MainComponents;

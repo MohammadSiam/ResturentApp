@@ -1,9 +1,9 @@
 import React from 'react';
-function body(){
+const  Body=()=>{
     return(
         <div>
 
         </div>
     )
 }
-export default body;
+export default Body;
