@@ -2,16 +2,26 @@ import React, { Component } from "react";
 import DISHES from "../../data/dishes";
 import MenuItem from "./MenuItem";
 import DishDetails from "./DishDetails";
+import {CardColumns,Modal,ModalBody, ModalFooter,Button} from 'reactstrap'
+import { thisExpression } from "@babel/types";
 
 class Menu extends Component {
 
     state = {
         dishes: DISHES,
-        selectedDish: null
+        selectedDish: null,
+        modalOpen:false
     }
 
     onDishSelect = dish => {
         this.setState({ selectedDish: dish });
+        this.toggleModal();
+    }
+
+    toggleModal=()=>{
+        this.setState({
+            modalOpen:!this.state.modalOpen
+        })
     }
 
     render() {
@@ -32,12 +42,19 @@ class Menu extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-6">
+                    <CardColumns>
                         {menu}
-                    </div>
-                    <div className="col-6">
-                        {dishDetail}
-                    </div>
+                    </CardColumns>
+                    <Modal isOpen={this.state.modalOpen} onClick={this.toggleModal}>
+                        <ModalBody>
+                            {dishDetail}
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="secondary" onClick={this.toggleModal}>
+                                Closed
+                            </Button>
+                        </ModalFooter>
+                    </Modal>
                 </div>
             </div>
         );
